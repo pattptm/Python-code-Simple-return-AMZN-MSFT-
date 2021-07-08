@@ -17,3 +17,6 @@ srmsft_graph= sr_msft.plot(figsize=(8,5))
 srmsft_graph.set_title('Simple Return of MSFT 2018-2020')
 #set y axis
 srmsft_graph.set_ylabel('Return%')
+#calculate average return
+avg_srmsft=sr_msft.mean()
+print('Average simple return MSFT =',avg_srmsft)
