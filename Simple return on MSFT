@@ -1,0 +1,19 @@
+#source of pulling data from yahoo.finance
+import yfinance as yf 
+#helping to create graph
+import matplotlib   
+
+#pull data from yahoo.finance
+msft = yf.download('msft', start='2018-01-01', end='2020-12-30')
+#to see the result of the data
+print(msft) 
+
+sr_msft= (msft['Adj Close']/msft['Adj Close'].shift(1))-1
+print(sr_msft)
+
+#plot graph
+srmsft_graph= sr_msft.plot(figsize=(8,5))
+#writing title
+srmsft_graph.set_title('Simple Return of MSFT 2018-2020')
+#set y axis
+srmsft_graph.set_ylabel('Return%')
