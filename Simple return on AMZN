@@ -1,0 +1,19 @@
+#source of pulling data from yahoo.finance
+import yfinance as yf 
+#helping to create graph
+import matplotlib   
+
+#pull data from yahoo.finance
+amzn = yf.download('amzn', start='2018-01-01', end='2020-12-30')
+#to see the result of the data
+print(amzn) 
+
+sr_amzn= (amzn['Adj Close']/amzn['Adj Close'].shift(1))-1
+print(sr_amzn)
+
+#plot graph
+sramzn_graph= sr_amzn.plot(figsize=(8,5))
+#writing title
+sramzn_graph.set_title('Simple Return of AMZN 2018-2020')
+#set y axis
+sramzn_graph.set_ylabel('Return%')
